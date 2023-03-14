@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>&lt;&gt;</title>
+    
+    <style media="screen">
+      html {
+        font-size: 40%;
+      }
+
+      body {
+        margin: 0px;
+        padding: 25px;
+        background-color: #000000;
+        color: #A9A9A9;
+        font-family: "Courier", Courier;
+        font-weight: normal;
+        text-transform: none;
+        letter-spacing: 0.50em;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+	    
+      p {
+  	margin-top: 0px;
+ 	margin-bottom: 4px;
+  	margin-right: 0px;
+  	margin-left: 0px;      
+	text-align: center;
+      } 
+	    
+      a {
+        color: #FFFFFF;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: #000000;
+        text-decoration: none;
+        opacity: 0;
+      }
+
+      .contact {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-direction: column;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(1.2);
+        margin-bottom: 200px;
+      }
+      
+      .contact__portfolio { 
+        text-align: center; 
+      }
+      
+      .mouse_move {
+		    position: relative;
+		    width: 100%;
+		    height: 100vh;
+		    overflow: hidden;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+	    }
+      
+      .mouse_move img {
+		    position: fixed;
+	    }
+      
+      #img1 {
+	    	top: 0px;
+     		left: 0px;
+		height: 2800px;
+		width: 2800px;
+	        z-index: -1;
+	    }
+      
+      #img2 {
+    		bottom: 80px;
+    		right: 80px;
+    		height: 0px;
+    		width: 0px;
+    	}
+      
+    </style>
+    <title>Parallax</title>
+  </head>
+  
+  <body>
+    <p><marquee width="510px" behavior="scroll" direction="left">PAIN RELIEVER &lt;&gt; SPIRIT INDUCER<br></marquee></p>
+	  <br>
+    <p><a href="https://soundcloud.com/user-hook/wound-1" target="_blank">&lt;wound-1&gt;</a> <i>archived</i></p>
+    <p><a href="https://freeradiosaic.org/shows/wound/" target="_blank">&lt;wound-2&gt;</a> 04.01.22 @ 5:30pm CST</p>
+
+    <div class="mouse_move">
+	<img
+		id="img1"
+		src="HK_FREE.png"
+		class="mouse"
+		value="100"/>
+	<img
+		id="img2"
+		src=" "
+		class="mouse"
+		value="-5"/>
+	</div>
+
+	<script type="text/javascript">
+	document.addEventListener("mousemove", parallax);
+	function parallax(event) {
+		this.querySelectorAll(".mouse").forEach((shift) => {
+		const position = shift.getAttribute("value");
+		const x = (window.innerWidth - event.pageX * position) / 90;
+		const y = (window.innerHeight - event.pageY * position) / 90;
+
+		shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+		});
+	}
+	</script>
+  </body>
+</html>
